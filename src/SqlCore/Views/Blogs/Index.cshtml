@@ -1,0 +1,29 @@
+﻿@model IEnumerable<SqlCore.Models.Blog>
+
+@{
+    ViewBag.Title = "Blog Listing";
+}
+
+<h2>Blog Listing</h2>
+
+<p>
+    <a asp-controller="Blogs" asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Url</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlogId)
+            </td>
+            <td><a href="@Html.DisplayFor(modelItem => item.Url)">@Html.DisplayFor(modelItem => item.Url)</a>
+            </td>
+        </tr>
+    }
+</table>
