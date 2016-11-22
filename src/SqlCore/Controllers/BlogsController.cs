@@ -17,11 +17,13 @@ namespace SqlCore.Controllers
 
         public IActionResult Index()
         {
+            Console.WriteLine("Index Hit!");
             return View(_context.Blog.ToList());
         }
 
         public IActionResult Create()
         {
+            Console.WriteLine("Create Hit!");
             return View();
         }
 
@@ -31,6 +33,7 @@ namespace SqlCore.Controllers
         {
             if (ModelState.IsValid)
             {
+                Console.WriteLine("Create Post!");
                 _context.Blog.Add(blog);
                 _context.SaveChanges();
                 return RedirectToAction("Index");

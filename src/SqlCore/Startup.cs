@@ -35,10 +35,10 @@ namespace SqlCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddApplicationInsightsTelemetry(Configuration);
-            //services.AddEntityFrameworkSqlServer();
-            var connection = @"Server=192.168.0.10;Database=Blogging;User Id=blogger;Password=blogger;";
+            var connection = Configuration["ConnectionString"];
+            //var connection = @"Server=192.168.0.10;Database=Blogging;User Id=blogger;Password=blogger;";
             services.AddDbContext<BloggingContext>(options => options.UseSqlServer(connection));
+            services.AddApplicationInsightsTelemetry(Configuration);
             services.AddMvc();
             
         }

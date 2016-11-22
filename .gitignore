@@ -3,3 +3,5 @@
 ################################################################################
 
 /src/SqlCore/bin/Debug/netcoreapp1.0
+/src/SqlCore/obj/Debug/netcoreapp1.0
+/.vs
